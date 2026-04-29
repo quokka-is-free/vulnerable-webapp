@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Helix Systems - Internal Portal{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero">
+  <h1 class="hero-headline">The internal platform.<br>Built for productivity.</h1>
+  <p class="hero-tagline">Everything your team needs. In one place.</p>
+  <div class="tile-actions">
+    <a href="/login" class="btn-primary">Sign in</a>
+    <a href="/search?q=" class="btn-secondary">Learn more</a>
+  </div>
+</section>
+
+<!-- Tile Light: Staff Portal -->
+<section class="tile tile-parchment">
+  <div class="tile-content">
+    <p class="tile-eyebrow">Staff Portal</p>
+    <h2 class="tile-headline">Access your workspace.</h2>
+    <p class="tile-tagline">Single sign-on for all internal services.</p>
+    <div class="tile-actions">
+      <a href="/login" class="btn-primary">Sign in</a>
+      <a href="/admin" class="btn-secondary">Admin Console</a>
+    </div>
+  </div>
+</section>
+
+<!-- Tile Dark: Directory -->
+<section class="tile tile-dark">
+  <div class="tile-content">
+    <p class="tile-eyebrow">Employee Directory</p>
+    <h2 class="tile-headline">Find anyone, instantly.</h2>
+    <p class="tile-tagline">5,000+ team members across 12 offices.</p>
+    <div class="tile-actions">
+      <a href="/api/v1/users" class="btn-primary">Open Directory</a>
+    </div>
+  </div>
+</section>
+
+<!-- Tile Light: Search -->
+<section class="tile tile-light">
+  <div class="tile-content">
+    <p class="tile-eyebrow">Knowledge Base</p>
+    <h2 class="tile-headline">Search the entire company.</h2>
+    <p class="tile-tagline">Documents, wikis, code, and more.</p>
+    <div class="tile-actions">
+      <a href="/search?q=helix" class="btn-primary">Start searching</a>
+    </div>
+  </div>
+</section>
+
+<!-- Tile Dark 2: Internal Tools -->
+<section class="tile tile-dark-2">
+  <div class="tile-content">
+    <p class="tile-eyebrow">Engineering</p>
+    <h2 class="tile-headline">Built by engineers, for engineers.</h2>
+    <p class="tile-tagline">Internal tooling that actually scales.</p>
+  </div>
+</section>
+
+<!-- Utility Cards Grid -->
+<section style="padding: 60px 22px; background: #ffffff;">
+  <div style="max-width: 1024px; margin: 0 auto;">
+    <h2 style="font-family: 'SF Pro Display', sans-serif; font-size: 34px; font-weight: 600; text-align: center; margin-bottom: 8px; letter-spacing: -0.374px;">Quick links</h2>
+    <p style="text-align: center; font-size: 17px; color: #6e6e73; margin-bottom: 40px; letter-spacing: -0.374px;">Everything you need, one click away.</p>
+
+    <div class="card-grid">
+      <div class="utility-card">
+        <h3>Staff Portal</h3>
+        <p>Sign in to access internal applications and tools.</p>
+        <a href="/login">Open ›</a>
+      </div>
+      <div class="utility-card">
+        <h3>Admin Console</h3>
+        <p>System administration and configuration management.</p>
+        <a href="/admin">Open ›</a>
+      </div>
+      <div class="utility-card">
+        <h3>User Directory</h3>
+        <p>Search team members across the organization.</p>
+        <a href="/api/v1/users">Open ›</a>
+      </div>
+      <div class="utility-card">
+        <h3>Knowledge Base</h3>
+        <p>Internal documentation and engineering wiki.</p>
+        <a href="/search?q=">Open ›</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

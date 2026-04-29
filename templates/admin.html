@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Console - Helix Systems{% endblock %}
+
+{% block content %}
+
+<!-- 의도적 취약 경고 (실 운영처럼 안 보이게 작게) -->
+<div class="admin-banner">
+  ⚠ <strong>Notice:</strong> This page lacks authentication checks (intentional for ASM demo).
+</div>
+
+<div class="admin-section">
+  <h1 class="admin-headline">Welcome, Administrator.</h1>
+  <p class="admin-subheadline">System overview and management tools.</p>
+
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">Active Users</div>
+      <div class="stat-value">5,247</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Servers Online</div>
+      <div class="stat-value">142</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Active Sessions</div>
+      <div class="stat-value">1,893</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Open Tickets</div>
+      <div class="stat-value">23</div>
+    </div>
+  </div>
+
+  <!-- Menu List -->
+  <h2 style="font-size: 24px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.374px;">System Management</h2>
+  <ul class="menu-list">
+    <li>User Management</li>
+    <li>Role &amp; Permissions</li>
+    <li>System Configuration</li>
+    <li>Database Tools</li>
+    <li>Server Logs</li>
+    <li>API Keys &amp; Secrets</li>
+    <li>Backup &amp; Restore</li>
+    <li>Audit Trail</li>
+  </ul>
+
+  <h2 style="font-size: 24px; font-weight: 600; margin: 40px 0 16px; letter-spacing: -0.374px;">Recent Activity</h2>
+  <ul class="menu-list">
+    <li>admin@helix-systems.com signed in · 2 minutes ago</li>
+    <li>Database backup completed · 1 hour ago</li>
+    <li>Security patch applied to webserver-03 · 3 hours ago</li>
+    <li>New user added: m.choi@helix-systems.com · Yesterday</li>
+  </ul>
+</div>
+
+{% endblock %}

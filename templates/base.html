@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}Helix Systems{% endblock %}</title>
+<style>
+/* Apple Design System - Helix Systems Internal Portal */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: -0.374px;
+  color: #1d1d1f;
+  background: #ffffff;
+}
+
+/* Global Nav (검정 글로벌 네비) */
+.global-nav {
+  background: #000000;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 22px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-content {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  color: #ffffff;
+  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.374px;
+  text-decoration: none;
+}
+
+.nav-logo span {
+  color: #2997ff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #f5f5f7;
+  font-size: 14px;
+  text-decoration: none;
+  letter-spacing: -0.224px;
+  opacity: 0.88;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+.nav-utility {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-utility a {
+  color: #f5f5f7;
+  font-size: 12px;
+  text-decoration: none;
+  opacity: 0.88;
+}
+
+/* Footer */
+.footer {
+  background: #f5f5f7;
+  padding: 64px 22px 32px;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #d2d2d7;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+  letter-spacing: -0.224px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 8px;
+  line-height: 2.0;
+}
+
+.footer-col a {
+  color: #424245;
+  font-size: 12px;
+  text-decoration: none;
+  letter-spacing: -0.16px;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-legal {
+  padding-top: 24px;
+  font-size: 12px;
+  color: #6e6e73;
+  letter-spacing: -0.12px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.footer-legal-links a {
+  color: #6e6e73;
+  text-decoration: none;
+}
+
+/* Buttons (Apple Action Blue 단일 액센트) */
+.btn-primary {
+  display: inline-block;
+  background: #0066cc;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 12px 22px;
+  border-radius: 980px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  letter-spacing: -0.374px;
+  transition: transform 0.1s, background 0.2s;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: #0071e3;
+}
+
+.btn-primary:active {
+  transform: scale(0.95);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  color: #0066cc;
+  font-size: 17px;
+  padding: 12px 22px;
+  border-radius: 980px;
+  text-decoration: none;
+  letter-spacing: -0.374px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary:hover {
+  text-decoration: underline;
+}
+
+.btn-secondary::after {
+  content: " ›";
+  margin-left: 4px;
+}
+
+/* Tile Sections (Apple 시그니처 - 라이트/다크 교차) */
+.tile {
+  width: 100%;
+  padding: 80px 22px;
+  text-align: center;
+}
+
+.tile-light {
+  background: #ffffff;
+}
+
+.tile-parchment {
+  background: #f5f5f7;
+}
+
+.tile-dark {
+  background: #272729;
+  color: #ffffff;
+}
+
+.tile-dark-2 {
+  background: #2a2a2c;
+  color: #ffffff;
+}
+
+.tile-content {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.tile-eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.224px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.tile-dark .tile-eyebrow {
+  color: #f5f5f7;
+}
+
+.tile-headline {
+  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: 0;
+  color: #1d1d1f;
+  margin-bottom: 6px;
+}
+
+.tile-dark .tile-headline {
+  color: #ffffff;
+}
+
+.tile-tagline {
+  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.19;
+  color: #1d1d1f;
+  margin-bottom: 24px;
+  letter-spacing: 0.231px;
+}
+
+.tile-dark .tile-tagline {
+  color: #f5f5f7;
+}
+
+.tile-actions {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* Hero (페이지 최상단) */
+.hero {
+  background: #ffffff;
+  padding: 60px 22px 80px;
+  text-align: center;
+}
+
+.hero-headline {
+  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-size: 56px;
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.28px;
+  color: #1d1d1f;
+  max-width: 800px;
+  margin: 0 auto 16px;
+}
+
+.hero-tagline {
+  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.14;
+  color: #1d1d1f;
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+/* Cards (utility) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  max-width: 980px;
+  margin: 40px auto 0;
+  padding: 0 22px;
+}
+
+.utility-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 18px;
+  padding: 24px;
+  text-align: left;
+  transition: transform 0.1s;
+}
+
+.utility-card:hover {
+  transform: translateY(-2px);
+}
+
+.utility-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.374px;
+  margin-bottom: 6px;
+}
+
+.utility-card p {
+  font-size: 14px;
+  color: #424245;
+  line-height: 1.43;
+  letter-spacing: -0.224px;
+  margin-bottom: 16px;
+}
+
+.utility-card a {
+  font-size: 14px;
+  color: #0066cc;
+  text-decoration: none;
+  letter-spacing: -0.224px;
+}
+
+.utility-card a:hover {
+  text-decoration: underline;
+}
+
+/* Forms */
+.form-container {
+  max-width: 480px;
+  margin: 80px auto;
+  padding: 0 22px;
+}
+
+.form-headline {
+  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #1d1d1f;
+}
+
+.form-tagline {
+  font-size: 17px;
+  color: #6e6e73;
+  text-align: center;
+  margin-bottom: 40px;
+  letter-spacing: -0.374px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 6px;
+  letter-spacing: -0.224px;
+}
+
+.form-input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 17px;
+  font-family: inherit;
+  color: #1d1d1f;
+  letter-spacing: -0.374px;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #0071e3;
+  border-width: 2px;
+  padding: 11px 15px;
+}
+
+.form-submit {
+  width: 100%;
+  background: #0066cc;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 400;
+  padding: 14px 22px;
+  border-radius: 980px;
+  border: none;
+  cursor: pointer;
+  margin-top: 12px;
+  letter-spacing: -0.374px;
+  font-family: inherit;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.form-submit:hover {
+  background: #0071e3;
+}
+
+.form-submit:active {
+  transform: scale(0.95);
+}
+
+.form-error {
+  background: #fff0f0;
+  border-left: 3px solid #ff3b30;
+  color: #b8170e;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  letter-spacing: -0.224px;
+  font-family: 'SF Mono', Monaco, Menlo, Consolas, monospace;
+  word-break: break-all;
+}
+
+/* Admin Dashboard */
+.admin-banner {
+  background: #fff8e1;
+  border-bottom: 1px solid #ffe082;
+  padding: 12px 22px;
+  text-align: center;
+  font-size: 14px;
+  color: #5d4037;
+  letter-spacing: -0.224px;
+}
+
+.admin-banner strong {
+  color: #c62828;
+}
+
+.admin-section {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 60px 22px;
+}
+
+.admin-headline {
+  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #1d1d1f;
+  margin-bottom: 8px;
+}
+
+.admin-subheadline {
+  font-size: 17px;
+  color: #6e6e73;
+  margin-bottom: 40px;
+  letter-spacing: -0.374px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #6e6e73;
+  letter-spacing: -0.224px;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-family: 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.374px;
+}
+
+.menu-list {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 18px;
+  padding: 8px;
+  list-style: none;
+}
+
+.menu-list li {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 17px;
+  color: #1d1d1f;
+  letter-spacing: -0.374px;
+  cursor: pointer;
+  transition: background 0.15s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-list li:last-child {
+  border-bottom: none;
+}
+
+.menu-list li:hover {
+  background: #f5f5f7;
+}
+
+.menu-list li::after {
+  content: "›";
+  color: #c0c0c5;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+/* Search */
+.search-container {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: 0 22px;
+}
+
+.search-input-wrapper {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.search-input {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 980px;
+  padding: 16px 24px;
+  font-size: 17px;
+  font-family: inherit;
+  color: #1d1d1f;
+  letter-spacing: -0.374px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #0071e3;
+  border-width: 2px;
+  padding: 15px 23px;
+}
+
+.search-result-count {
+  font-size: 14px;
+  color: #6e6e73;
+  letter-spacing: -0.224px;
+  margin-bottom: 16px;
+}
+
+.search-result-text {
+  font-size: 17px;
+  color: #1d1d1f;
+  letter-spacing: -0.374px;
+  margin-bottom: 8px;
+}
+
+.search-result-text strong {
+  font-weight: 600;
+}
+
+.search-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: #6e6e73;
+  font-size: 17px;
+  letter-spacing: -0.374px;
+}
+
+/* Responsive */
+@media (max-width: 833px) {
+  .hero-headline { font-size: 34px; }
+  .hero-tagline { font-size: 21px; }
+  .tile-headline { font-size: 32px; }
+  .tile-tagline { font-size: 17px; }
+  .form-headline, .admin-headline { font-size: 32px; }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-headline { font-size: 28px; }
+  .tile { padding: 48px 22px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Global Nav -->
+<nav class="global-nav">
+  <div class="nav-content">
+    <a href="/" class="nav-logo">Helix<span>·</span>Systems</a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/login">Portal</a></li>
+      <li><a href="/search?q=">Search</a></li>
+      <li><a href="/api/v1/users">Directory</a></li>
+    </ul>
+    <div class="nav-utility">
+      <a href="/login">Sign In</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Content -->
+{% block content %}{% endblock %}
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/">About Helix</a></li>
+          <li><a href="/">Leadership</a></li>
+          <li><a href="/">Careers</a></li>
+          <li><a href="/">Newsroom</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Internal Tools</h4>
+        <ul>
+          <li><a href="/login">Staff Portal</a></li>
+          <li><a href="/admin">Admin Console</a></li>
+          <li><a href="/api/v1/users">User Directory</a></li>
+          <li><a href="/search?q=">Knowledge Base</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/">Documentation</a></li>
+          <li><a href="/">Support Center</a></li>
+          <li><a href="/">Status Page</a></li>
+          <li><a href="/robots.txt">Sitemap</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/">Privacy Policy</a></li>
+          <li><a href="/">Terms of Use</a></li>
+          <li><a href="/">Cookie Policy</a></li>
+          <li><a href="/">Compliance</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>Copyright © 2026 Helix Systems Inc. All rights reserved.</span>
+      <ul class="footer-legal-links">
+        <li><a href="/">Privacy</a></li>
+        <li><a href="/">Terms</a></li>
+        <li><a href="/">Site Map</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

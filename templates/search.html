@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Search - Helix Systems{% endblock %}
+
+{% block content %}
+
+<div class="search-container">
+  <div class="search-input-wrapper">
+    <form method="GET" action="/search">
+      <input
+        type="text"
+        name="q"
+        class="search-input"
+        placeholder="Search documents, wikis, code..."
+        value="{{ query }}"
+        autofocus
+      >
+    </form>
+  </div>
+
+  {% if query %}
+    <p class="search-result-count">Showing results for:</p>
+    <p class="search-result-text">
+      <strong>{{ query|safe }}</strong>
+      <!-- 의도적 XSS - safe 필터로 escape 우회 -->
+    </p>
+
+    <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid #f0f0f0;">
+      <p class="search-empty">
+        No results found.<br>
+        Try different keywords or check your spelling.
+      </p>
+    </div>
+  {% else %}
+    <div class="search-empty">
+      Enter a search term to begin.
+    </div>
+
+    <!-- Suggested Searches -->
+    <div style="margin-top: 60px;">
+      <p style="font-size: 14px; color: #86868b; margin-bottom: 16px; letter-spacing: -0.224px;">SUGGESTED</p>
+      <ul style="list-style: none;">
+        <li style="margin-bottom: 12px;"><a href="/search?q=onboarding" style="color: #0066cc; font-size: 17px; text-decoration: none; letter-spacing: -0.374px;">Onboarding guide</a></li>
+        <li style="margin-bottom: 12px;"><a href="/search?q=security+policy" style="color: #0066cc; font-size: 17px; text-decoration: none; letter-spacing: -0.374px;">Security policy</a></li>
+        <li style="margin-bottom: 12px;"><a href="/search?q=engineering+wiki" style="color: #0066cc; font-size: 17px; text-decoration: none; letter-spacing: -0.374px;">Engineering wiki</a></li>
+        <li style="margin-bottom: 12px;"><a href="/search?q=hr+benefits" style="color: #0066cc; font-size: 17px; text-decoration: none; letter-spacing: -0.374px;">HR benefits</a></li>
+      </ul>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

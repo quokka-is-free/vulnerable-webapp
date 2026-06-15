@@ -37,7 +37,3 @@
 - 모든 테스트는 격리된 가상 환경(VMware Host-only)에서 진행
 - 실제 운영 환경 배포 절대 금지
 - 정보통신망법 제48조 준수
-
----
-
-**Contact**: rnflrnl@gmail.com
